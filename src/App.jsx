@@ -59,7 +59,7 @@ console.log("cari",CarItem)
       <div className='diff'></div>
       {/* {console.log(nameVar)} */}
       {CarItem && modelName && year && carPrice && <Body carData={carData}/>  }
-      <Pagination carData={carData}/>
+      {/* <Pagination carData={carData}/> */}
     </>
   )
 }

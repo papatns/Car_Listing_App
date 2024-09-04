@@ -1,41 +1,36 @@
 import {React,useState} from 'react'
+import "./pagination.css"
+const pagination = ({totalPosts,postPerPage,setCurrentPage}) => {
+  console.log("posts",totalPosts)
+  let pages =[];
+  // const [bgColor , setBgColor] = useState("");
+  const [nextButton,setNextButton] = useState("");
+  const [prev,setPrev] = useState("");
 
-const pagination = (props) => {
-  const [currentPage,setCurrentPage] = useState(1);
-  const recordsPerPage =6;
-  const lastIndex = currentPage * recordsPerPage;
-  const firstIndex = lastIndex - recordsPerPage;
-  const records = props?.carData?.slice(firstIndex,lastIndex);
-  const nPage = Math.ceil(props?.carData?.length/recordsPerPage);
-  console.log("npage",nPage)
-  const numbers = nPage && [...Array(nPage+1).keys()].slice(1);
-  console.log("numbers",numbers)
+  for(let i=1; i<=Math.ceil(totalPosts/postPerPage); i++){
+    pages.push(i)
+  }
+  const handleClick=((page)=>{
+       setCurrentPage(page);
+      //  setBgColor("yellow")
+  })
+
+ const handleNext=(pages)=>{
+     setNextButton(pages+1)
+ }
+ const handlePrev=(pages)=>{
+  setPrev(pages+1)
+}
+  console.log("tri",pages)
   return (
-    <div>
-      <nav>
-        <ul>
-          <li className='page-items'>
-            <a href='#' className='page-link'>Prev</a>
-          </li>
-          {
-            nPage && numbers?.map((n,i) =>{
-              {console.log("nnnnn",n)}
-              return<>
-              <li key={i}>
-              {console.log("mmmmm",n)}
-              <a href='#' className='page-link'>{n}</a>
-              </li>
-              </>
-              
-          })
-          }
-          
-          
-          <li className='page-items'>
-            <a href='#' className='page-link'>Next</a>
-          </li>
-        </ul>
-      </nav>
+    <div className='button_container'>
+      <button className='pagination_button' onClick={()=>handlePrev(pages)}>Prev</button>
+      {
+        pages.map((page,index)=>{
+          return <button key={index} onClick={()=>handleClick(page)} className='pagination_button number'>{page}</button>
+        })
+      }
+      <button className='pagination_button' onClick={()=>handleNext}>Next</button>
     </div>
   )
 }

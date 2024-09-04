@@ -81,6 +81,12 @@
     /* border: 1px solid black; */
     flex-wrap: wrap;
 }
+.pagination_container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
 
 @media(max-width:992px){
     .actual_body{

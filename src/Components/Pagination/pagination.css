@@ -1,0 +1,26 @@
+.button_container{
+    display: flex;
+    gap: 20px;
+    /* border: 1px solid black; */
+}
+.pagination_button{
+    all:unset;
+   color: #000000;
+   font-size: 20px;
+   line-height: 2;
+   border-radius: 50px;
+   width: 50px;
+   text-align: center;
+}
+.pagination_button:hover{
+    background-color: grey;
+}
+.number{
+    background-color: yellow;
+}
+
+@media(max-width:562px){
+    .pagination_button{
+        width: 30px;
+    }
+}

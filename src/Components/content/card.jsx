@@ -1,18 +1,25 @@
 import React from 'react'
 import "./card.css"
 import Image from "../../assets/images1.jpg"
+import Images from "../../data.json"
 
 const card = (props) => {
     // console.log("anita",props?.modelCardName)
 
     // const uniqueCarModel = [...new Set(props?.carData?.make)]
     // console.log("unique",uniqueCarModel);
+    console.log("iiii",Images)
 
   return (
     <div className='main_card'>
         <div className='card_details'>
             <div className='top'>
-                <img src={Image}/>
+                {Images?.map((value,index)=>{
+                   {console.log("vvvv",value.url)}
+                    <img src={value.url} alt={index}/>
+                    
+                })}
+                {/* <img src={Images}/> */}
             </div>
             <div className='bottom'>
                 <div className='all_details'>
